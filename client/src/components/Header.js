@@ -8,7 +8,7 @@ function Header() {
 
    const logout = async() =>{
       try {
-        const res = await axios.post("http://localhost:5000/api/logout",{},{withCredentials:true})
+        const res = await axios.post("https://webscrap-zunj.onrender.com/api/logout",{},{withCredentials:true})
         if(res.data.massage === "logout successfull"){
           localStorage.setItem("user",null)
           changeUserLog()

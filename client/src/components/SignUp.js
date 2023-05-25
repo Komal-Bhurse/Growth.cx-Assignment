@@ -18,7 +18,7 @@ function SignUp() {
       onSubmit: async (values, action) => {
         try {
           const response = await axios.post(
-            `http://localhost:5000/api/signup`,
+            `https://webscrap-zunj.onrender.com/api/signup`,
             values
           );
           alert(response.data.massage);

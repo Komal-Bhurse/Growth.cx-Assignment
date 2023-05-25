@@ -6,7 +6,7 @@ function Home() {
   
   async function geturls(){
     try {
-       const response = await axios.get("http://localhost:5000/api/urls",{withCredentials:true})
+       const response = await axios.get("https://webscrap-zunj.onrender.com/api/urls",{withCredentials:true})
        setUrlHistory(response.data[0]?.domain)
     } catch (error) {
       alert(error)
@@ -20,7 +20,7 @@ geturls()
   const getInsites = async(e)=>{
     e.preventDefault()
       try {
-        const res = await axios.post("http://localhost:5000/api/geturlinsights",{url},{withCredentials:true})
+        const res = await axios.post("https://webscrap-zunj.onrender.com/api/geturlinsights",{url},{withCredentials:true})
         if(res.data?.massage){
           alert(res.data?.massage)
         }
@@ -33,7 +33,7 @@ geturls()
 
  const handleUpdate = async(id)=>{
      try {
-       const res = await axios.put(`http://localhost:5000/api/update/${id}`,{},{withCredentials:true})
+       const res = await axios.put(`https://webscrap-zunj.onrender.com/api/update/${id}`,{},{withCredentials:true})
        if(res.data.massage === "update"){
         geturls()
       }else{
@@ -46,7 +46,7 @@ geturls()
   
 const handleDelete = async(id) =>{
   try {
-    const resp = await axios.delete(`http://localhost:5000/api/delete/${id}`,{withCredentials:true})
+    const resp = await axios.delete(`https://webscrap-zunj.onrender.com/api/delete/${id}`,{withCredentials:true})
     if(resp.data.massage === "removed"){
       geturls()
     }else{
